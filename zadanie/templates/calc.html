@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+{% block script %}
+
+{% endblock %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block navbar %}
+
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <form method="POST" action="/logIn">
+       {{ login.hidden_tag() }}
+        {{ login.A.label(class="form-label") }}
+        {{ login.A(class="form-control") }}
+        {{ login.B.label(class="form-label") }}
+        {{ login.B(class="form-control") }}
+        {{ login.C.label(class="form-label") }}
+        {{ login.C(class="form-control") }}
+        {{ login.submit(class="btn btn-dark mt-3 float-end") }}
+    </form>
+    </div>
+{% endblock %}
