@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <h1>tablica</h1>
+</head>
+<body>
+    <form method="post" action="http://localhost:5000/find">
+        <input placeholder="nazwisko" name="last_name" >
+        <button type="submit">find</button>
+    </form>
+
+    <h2>avg {{ average }}</h2>
+    <h2>min {{ min }}</h2>
+    <h2>max {{ max }}</h2>
+
+    <table>
+            <tr>
+                <td>ID</td>
+                <td>Last Name</td>
+                <td>First Name</td>
+                <td>Salary</td>
+            </tr>
+
+                <tr>
+                    <td>{{ data.id }}</td>
+                    <td>{{ data.last_name }}</td>
+                    <td>{{ data.first_name }}</td>
+                    <td>{{ data.salary }}</td>
+                </tr>
+
+
+    </table>
+</body>
+</html>
