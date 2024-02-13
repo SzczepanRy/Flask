@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        {% assets "style" %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='all.css') }}" />
+        {% endassets %}
+    </head>
+
+    <body class="login">
+        <div class="container">
+            <h5>login</h5>
+            <form method="post" action="/login">
+                <input type="text" placeholder="login" name="login" />
+                <input type="text" placeholder="password" name="password" />
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </body>
+</html>

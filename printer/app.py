@@ -29,20 +29,28 @@ scss = Bundle(
 )
 assets.register("style", scss)
 
-bombs = ["bomb 1 (shool)" , "bomb 2 (jabobs house)", " bomb 3 (math class)"]
 user = {"login":"a","password":"a"}
+relay_ch = 18
 
-
-def bomb():
-    relay_ch = 18
+def on():
+ 
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
 
     GPIO.setup(relay_ch, GPIO.OUT)
     GPIO.output(relay_ch, GPIO.LOW)
-    time.sleep(1)
-    GPIO.output(relay_ch, GPIO.HIGH)
+    time.sleep(10*60*60*24)
     GPIO.cleanup()
+def off():
+    
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+
+    GPIO.setup(relay_ch, GPIO.OUT)
+    GPIO.output(relay_ch, GPIO.HIGH)
+    time.sleep(10*60*60*24)
+    GPIO.cleanup()
+    
 
 
 
@@ -55,21 +63,20 @@ def home():
     login = request.form["login"]
     password = request.form["password"]
     if(login == user["login"] and password == user["password"]):
-        return render_template("index.html" , bombs=bombs)
+        return render_template("index.html")
     else:
         return render_template("login.html")
 
 
-@app.route("/detonate", methods=["POST"])
-def detonate():
-    bombL = request.form["location"]
-    print(bombL)
-    if bombL:
+@app.route("/switch", methods=["POST"])
+def switch():
+    option = request.form["option"]
+    if option == "on":
+        on()
         #detonate bomb 
-        bomb()
-             
-
-        return render_template("bomb.html",bomb=bombL)
+    if option == "off":
+        off()             
+    return render_template("bomb.html",option = option)
         
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=2137)

@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% assets "style" %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='all.css') }}"> {% endassets %}
 </head>
 
-<body>
-    <h1>detonating {{bomb}}</h1>
+<body class="bomb">
+    <h1>detonated {{ bomb }}</h1>
 </body>
 
 </html>

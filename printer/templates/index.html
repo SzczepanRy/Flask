@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bomb egnition</title>
+        {% assets "style" %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='all.css') }}" />
+        {% endassets %}
+    </head>
+
+    <body class="index">
+        <h5>this site is dedicated to tunning on my 3D Printer</h5>
+
+        <form action="/switch" method="post">
+            <select name="option">
+                <option value="on">on</option>
+                <option value="off">off</option>
+            </select>
+            <button>submit</button>
+        </form>
+    </body>
+</html>

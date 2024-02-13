@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bomb egnition</title>
+    {% assets "style" %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='all.css') }}"> {% endassets %}
 </head>
 
-<body>
+<body class="index">
     <h5>this site is dedicated to seting off a small explosive charge</h5>
 
     <form action="/detonate" method="post">
         <select name="location">
             {% for bomb in bombs %}
-            <option value={{bomb}}>{{bomb}}</option>
+            <option value="{{bomb}}">{{bomb}}</option>
             {% endfor %}
         </select>
         <button>detonate</button>

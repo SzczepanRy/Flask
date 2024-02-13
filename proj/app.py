@@ -41,7 +41,7 @@ def calculateMin(data):
 def display_data():
     data = load_data()
     parsed_data = []
-    for key, value in data.items():
+    for key , value in data.items():
         record = value.split(';')
         parsed_data.append({
             'id':record[0],
@@ -54,7 +54,7 @@ def display_data():
     print(max)
     min = calculateMin(parsed_data)
     average = round(averageSalary(parsed_data),2)
-
+    
     return render_template('tablica.html', data=parsed_data, max=max, min=min,average=average)
 
 @app.route('/find', methods=['POST'])
@@ -64,7 +64,6 @@ def find():
     for key, value in data.items():
         record = value.split(';')
         parsed_data.append({
-            'id': record[0],
             'last_name': record[1],
             'first_name': record[2],
             'salary': record[3]

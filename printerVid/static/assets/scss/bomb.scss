@@ -1,0 +1,14 @@
+.bomb {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	h1 {
+		text-align: center;
+		font-family: 'Courier New', Courier, monospace;
+		font-weight: 800;
+		font-size: 24px;
+	}
+}
